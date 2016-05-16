@@ -1,3 +1,5 @@
+from flashcards.cards import BaseCard
+
 class StudySet(object):
     """
     A StudySet is a container of flash cards.
@@ -12,6 +14,7 @@ class StudySet(object):
         """
         self._title = title
         self._description = description
+        self._cards = []
 
     @property
     def title(self):
@@ -52,3 +55,25 @@ class StudySet(object):
             self._description = value
         else:
             raise TypeError("StudySet description should be of type str")
+
+    def get(self, index):
+        """
+        Get a card from the set by its index.
+
+        :param index: The index of the card
+
+        :returns: The BaseCard object.
+        """
+        return self._cards[index]
+
+    def add(self, card):
+        """
+        Add a card to the end of this set.
+
+        :param card: A subclass of flashcards.cards.BaseCard object.
+        """
+        if isinstance(card, BaseCard):
+            self._cards.append(card)
+        else:
+            raise TypeError("A Set can only contain subclasses of "
+                            "flashcards.cards.BaseCard")
