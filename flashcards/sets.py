@@ -1,5 +1,6 @@
 from flashcards.cards import BaseCard
 
+
 class StudySet(object):
     """
     A StudySet is a container of flash cards.
@@ -77,3 +78,11 @@ class StudySet(object):
         else:
             raise TypeError("A Set can only contain subclasses of "
                             "flashcards.cards.BaseCard")
+
+    def remove(self, index):
+        """
+        Remove a card by its index
+
+        :param index: The index of the card
+        """
+        del self._cards[index]

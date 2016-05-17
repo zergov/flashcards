@@ -52,3 +52,14 @@ class TestStudySets(unittest.TestCase):
         self.set_instance.add(card)
         c = self.set_instance.get(0)
         self.assertEqual(c, card)
+
+    def test_set_remove_card(self):
+        card0 = QuestionCard('What is my name?', 'Jonathan')
+        card1 = QuestionCard("What is bird's name ?", "Gandalf")
+        self.set_instance.add(card0)
+        self.set_instance.add(card1)
+
+        self.set_instance.remove(1) # Remove the Gandalf card
+        self.assertEqual(len(self.set_instance._cards), 1)
+        self.assertNotIn(card1, self.set_instance._cards)
+        self.assertIn(card0, self.set_instance._cards)
