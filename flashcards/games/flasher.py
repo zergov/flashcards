@@ -23,17 +23,16 @@ class CardFlasher(object):
         index = self._current_card
         return self._study_set.get(index)
 
-    ###########################################
-    # TODO: Handle the case of an outbound index.
-    ###########################################
     def next(self):
         """
         Set the selection to the next card in the set.
         """
-        self._current_card += 1
+        if self._current_card + 1 < len(self._study_set._cards):
+            self._current_card += 1
 
     def previous(self):
         """
         Set the selection to the previous card in the set.
         """
-        self._current_card -= 1
+        if not self._current_card - 1 < 0:
+            self._current_card -= 1
