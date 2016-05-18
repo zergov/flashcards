@@ -1,4 +1,5 @@
 import unittest
+import mock
 
 from flashcards.cards import QuestionCard
 from flashcards.flasher import CardFlasher
@@ -79,6 +80,13 @@ class TestGameEnumerate(unittest.TestCase):
         flasher = CardFlasher(self.cards)
         flasher.randomize()
 
-        #TODO: Mock that shuffle has been called with the list of cards
         self.assertIn(self.cards[0], flasher._cards)
         self.assertIn(self.cards[1], flasher._cards)
+
+    @mock.patch('flashcards.flasher.random.shuffle')
+    def test_randomize_shuffle_called(self, mock_shuffle):
+
+        flasher = CardFlasher(self.cards)
+        flasher.randomize()
+
+        mock_shuffle.assert_called_once_with(flasher._cards)
