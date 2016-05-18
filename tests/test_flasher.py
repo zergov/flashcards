@@ -78,7 +78,7 @@ class TestGameEnumerate(unittest.TestCase):
     def test_randomize(self):
 
         flasher = CardFlasher(self.cards)
-        flasher.randomize()
+        flasher.shuffle()
 
         self.assertIn(self.cards[0], flasher._cards)
         self.assertIn(self.cards[1], flasher._cards)
@@ -87,6 +87,6 @@ class TestGameEnumerate(unittest.TestCase):
     def test_randomize_shuffle_called(self, mock_shuffle):
 
         flasher = CardFlasher(self.cards)
-        flasher.randomize()
+        flasher.shuffle()
 
         mock_shuffle.assert_called_once_with(flasher._cards)

@@ -40,7 +40,7 @@ class CardFlasher(object):
         if not self._current_card_index - 1 < 0:
             self._current_card_index -= 1
 
-    def randomize(self):
+    def shuffle(self):
         """
         Randomize the order of the cards.
         """
