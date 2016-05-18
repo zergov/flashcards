@@ -1,7 +1,7 @@
 import unittest
 
 from flashcards.cards import QuestionCard
-from flashcards.games.flasher import CardFlasher
+from flashcards.flasher import CardFlasher
 
 
 class TestGameEnumerate(unittest.TestCase):
