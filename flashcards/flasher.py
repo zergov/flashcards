@@ -14,30 +14,31 @@ class CardFlasher(object):
         self._cards = cards
 
         # Initialize the Flasher to start at the first card
-        self._current_card = 0
+        self._current_card_index = 0
 
-    def get_current_card(self):
+    @property
+    def current_card(self):
         """
         Get the current selected card.
 
         :returns: The card object that is currently selected.
         """
-        index = self._current_card
+        index = self._current_card_index
         return self._cards[index]
 
     def next(self):
         """
         Set the selection to the next card in the set.
         """
-        if self._current_card + 1 < len(self._cards):
-            self._current_card += 1
+        if self._current_card_index + 1 < len(self._cards):
+            self._current_card_index += 1
 
     def previous(self):
         """
         Set the selection to the previous card in the set.
         """
-        if not self._current_card - 1 < 0:
-            self._current_card -= 1
+        if not self._current_card_index - 1 < 0:
+            self._current_card_index -= 1
 
     def randomize(self):
         """

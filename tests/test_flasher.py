@@ -25,7 +25,7 @@ class TestGameEnumerate(unittest.TestCase):
         flasher = CardFlasher(self.cards)
 
         # By default, the flasher starts at card index 0
-        card = flasher.get_current_card()
+        card = flasher.current_card
         self.assertEqual(card, self.cards[0])
 
     def test_next(self):
@@ -35,7 +35,7 @@ class TestGameEnumerate(unittest.TestCase):
         # Set the index of the current card to the next card
         flasher.next()
 
-        card = flasher.get_current_card()
+        card = flasher.current_card
         self.assertEqual(card, self.cards[1])
 
     def test_next_out_of_bound(self):
@@ -49,7 +49,7 @@ class TestGameEnumerate(unittest.TestCase):
         flasher.next()
         flasher.next()
 
-        card = flasher.get_current_card()
+        card = flasher.current_card
         self.assertEqual(card, self.cards[1])
 
     def test_previous(self):
@@ -61,7 +61,7 @@ class TestGameEnumerate(unittest.TestCase):
         # Set the index of the current card to the previous card sooo --> 0
         flasher.previous()
 
-        card = flasher.get_current_card()
+        card = flasher.current_card
         self.assertEqual(card, self.cards[0])
 
     def test_previous_out_of_bound(self):
@@ -71,7 +71,7 @@ class TestGameEnumerate(unittest.TestCase):
         # Flasher starts at index 0. Calling previous should stay at index 0
         flasher.previous()
 
-        card = flasher.get_current_card()
+        card = flasher.current_card
         self.assertEqual(card, self.cards[0])
 
     def test_randomize(self):
