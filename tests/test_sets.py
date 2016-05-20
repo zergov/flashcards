@@ -1,7 +1,7 @@
 import unittest
 
 from flashcards.sets import StudySet
-from flashcards.cards import QuestionCard
+from flashcards.cards import (QuestionCard, BaseCard)
 
 
 class TestStudySets(unittest.TestCase):
@@ -59,7 +59,22 @@ class TestStudySets(unittest.TestCase):
         self.set_instance.add(card0)
         self.set_instance.add(card1)
 
-        self.set_instance.remove(1) # Remove the Gandalf card
+        self.set_instance.remove(1)  # Remove the Gandalf card
         self.assertEqual(len(self.set_instance._cards), 1)
         self.assertNotIn(card1, self.set_instance._cards)
         self.assertIn(card0, self.set_instance._cards)
+
+    def test_iter_cards(self):
+        card0 = QuestionCard('What is my name?', 'Jonathan')
+        card1 = QuestionCard("What is bird's name ?", "Gandalf")
+        card2 = QuestionCard("What is the meaning of life ?", "42")
+        self.set_instance.add(card0)
+        self.set_instance.add(card1)
+        self.set_instance.add(card2)
+
+        index = 0
+        for card in self.set_instance:
+            index += 1
+            self.assertIsInstance(card, BaseCard)
+
+        self.assertEqual(index, 3)

@@ -17,6 +17,11 @@ class StudySet(object):
         self._description = description
         self._cards = []
 
+    def __iter__(self):
+        """Iter through the cards of this set."""
+        for card in self._cards:
+            yield card
+
     @property
     def title(self):
         """
