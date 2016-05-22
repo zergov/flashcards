@@ -2,7 +2,10 @@ import random
 
 class CardFlasher(object):
     """
-    Contains the logic and the options behind the itteration on a list of cards.
+    Flasher that cycle through a list of cards.
+
+    Use the `next` and `previous` function to cycle through the list of cards.
+    Use `shuffle` method to randomize the order of the cards.
     """
 
     def __init__(self, cards):

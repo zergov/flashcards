@@ -5,7 +5,7 @@ from flashcards.cards import QuestionCard
 from flashcards.flasher import CardFlasher
 
 
-class TestGameEnumerate(unittest.TestCase):
+class Test_CardFlasher(unittest.TestCase):
 
     def setUp(self):
 
