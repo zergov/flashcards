@@ -17,8 +17,6 @@ class StudySession(object):
         :param cards: A list of BaseCard object
         """
         self._cards = cards
-
-        # Initialize the Flasher to start at the first card
         self._current_card_index = 0
 
     @property

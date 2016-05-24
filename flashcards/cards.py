@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 # Serialization key's
 QUESTION_KEY = 'question'
 ANSWER_KEY = 'answer'
@@ -94,4 +96,5 @@ class StudyCard(object):
 
         :returns: a dictionary object representation of this StudyCard
         """
-        return {QUESTION_KEY: self.question, ANSWER_KEY: self.answer}
+        data = ((QUESTION_KEY, self.question), (ANSWER_KEY, self.answer))
+        return OrderedDict(data)

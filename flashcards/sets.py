@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 from flashcards import cards
 from flashcards.cards import StudyCard
 
@@ -147,7 +149,8 @@ class StudySet(object):
         """
         serialized_cards = [c.to_dict() for c in self]
 
-        data = {TITLE_KEY: self.title, DESC_KEY: self.description}
-        data[CARDS_KEY] = serialized_cards
+        data = ((TITLE_KEY, self.title),
+                (DESC_KEY, self.description),
+                (CARDS_KEY, serialized_cards))
 
-        return data
+        return OrderedDict(data)
