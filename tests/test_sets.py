@@ -78,3 +78,14 @@ class TestStudySets(unittest.TestCase):
             self.assertIsInstance(card, StudyCard)
 
         self.assertEqual(index, 3)
+
+    def test_len_studyset(self):
+        # Should return the number of cards in this study set
+        card0 = StudyCard('What is my name?', 'Jonathan')
+        card1 = StudyCard("What is bird's name ?", "Gandalf")
+        card2 = StudyCard("What is the meaning of life ?", "42")
+        self.set_instance.add(card0)
+        self.set_instance.add(card1)
+        self.set_instance.add(card2)
+
+        self.assertEqual(len(self.set_instance), 3)

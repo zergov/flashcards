@@ -2,7 +2,7 @@ import unittest
 import mock
 
 from flashcards.cards import StudyCard
-from flashcards.flasher import CardFlasher
+from flashcards.study import CardFlasher
 
 
 class Test_CardFlasher(unittest.TestCase):

@@ -19,8 +19,11 @@ class StudySet(object):
 
     def __iter__(self):
         """Iter through the cards of this set."""
-        for card in self._cards:
-            yield card
+        return iter(self._cards)
+
+    def __len__(self):
+        """Return the number of cards in this StudySet."""
+        return len(self._cards)
 
     @property
     def title(self):
@@ -76,13 +79,13 @@ class StudySet(object):
         """
         Add a card to the end of this set.
 
-        :param card: A subclass of flashcards.cards.BaseCard object.
+        :param card: A subclass of flashcards.cards.StudyCard object.
         """
         if isinstance(card, StudyCard):
             self._cards.append(card)
         else:
-            raise TypeError("A Set can only contain subclasses of "
-                            "flashcards.cards.BaseCard")
+            raise TypeError("A Set can only contain instances of "
+                            "StudyCard objects.")
 
     def remove(self, index):
         """
