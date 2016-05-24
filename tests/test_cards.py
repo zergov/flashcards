@@ -8,7 +8,7 @@ class TestModulefunctions(unittest.TestCase):
 
     def test_create_card_from_dict(self):
         data = {'question': '2+2=?', 'answer': '4'}
-        card = cards.create_card_from_dict(data)
+        card = cards.create_from_dict(data)
 
         self.assertEqual('2+2=?', card.question)
         self.assertEqual('4', card.answer)

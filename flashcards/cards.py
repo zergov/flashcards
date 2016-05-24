@@ -3,7 +3,7 @@ QUESTION_KEY = 'question'
 ANSWER_KEY = 'answer'
 
 
-def create_card_from_dict(data):
+def create_from_dict(data):
     """
     Construct a StudyCard Object from a dictionary object.
 

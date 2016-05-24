@@ -1,4 +1,5 @@
-from flashcards.cards import (StudyCard, create_card_from_dict)
+from flashcards import cards
+from flashcards.cards import StudyCard
 
 TITLE_KEY = 'title'
 DESC_KEY = 'description'
@@ -19,11 +20,11 @@ def create_from_dict(data):
 
     title = data[TITLE_KEY]
     description = data[DESC_KEY]
-    cards = [create_card_from_dict(card) for card in data[CARDS_KEY]]
+    study_cards = [cards.create_from_dict(card) for card in data[CARDS_KEY]]
 
     study_set = StudySet(title, description)
 
-    for card in cards:
+    for card in study_cards:
         study_set.add(card)
 
     return study_set
