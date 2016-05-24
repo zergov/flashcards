@@ -1,3 +1,8 @@
+# Serialization key's
+QUESTION_KEY = 'question'
+ANSWER_KEY = 'answer'
+
+
 def create_card_from_dict(data):
     """
     Construct a StudyCard Object from a dictionary object.
@@ -8,13 +13,13 @@ def create_card_from_dict(data):
 
     :returns: StudyCard object
     """
-    if 'question' not in data:
-        raise KeyError("Invalid data string. 'question' key is missing")
-    if 'answer' not in data:
-        raise KeyError("Invalid data string. 'answer' key is missing")
+    if QUESTION_KEY not in data:
+        raise KeyError("Invalid data string. %s key is missing" % QUESTION_KEY)
+    if ANSWER_KEY not in data:
+        raise KeyError("Invalid data string. %s key is missing" % ANSWER_KEY)
 
-    question = data['question']
-    answer = data['answer']
+    question = data[QUESTION_KEY]
+    answer = data[ANSWER_KEY]
 
     return StudyCard(question, answer)
 
@@ -89,4 +94,4 @@ class StudyCard(object):
 
         :returns: a dictionary object representation of this StudyCard
         """
-        return {'question': self.question, 'answer': self.answer}
+        return {QUESTION_KEY: self.question, ANSWER_KEY: self.answer}
