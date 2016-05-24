@@ -1,10 +1,12 @@
 import random
 
-class CardFlasher(object):
-    """
-    Flasher that cycle through a list of cards.
 
-    Use the `next` and `previous` function to cycle through the list of cards.
+class StudySession(object):
+    """
+    Object that encapsulate a Study session. This object cycle through a
+    StudySet, prompting question to the user and serving the answer on
+    user input.
+
     Use `shuffle` method to randomize the order of the cards.
     """
 
