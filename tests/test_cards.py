@@ -1,6 +1,18 @@
 import unittest
 
+from flashcards import cards
 from flashcards.cards import StudyCard
+
+
+class TestModulefunctions(unittest.TestCase):
+
+    def test_create_card_from_dict(self):
+        data = {'question': '2+2=?', 'answer': '4'}
+        card = cards.create_card_from_dict(data)
+
+        self.assertEqual('2+2=?', card.question)
+        self.assertEqual('4', card.answer)
+
 
 class TestQuestionCards(unittest.TestCase):
 
@@ -33,3 +45,8 @@ class TestQuestionCards(unittest.TestCase):
     def test_card_set_answer_error(self):
         bad_answer = 2.71828
         self.assertRaises(TypeError, setattr, self.card.answer, bad_answer)
+
+    def test_to_dict(self):
+        data = self.card.to_dict()
+        expected = {'question': 'what is PI ?', 'answer': '3.14159265359'}
+        self.assertEqual(expected, data)

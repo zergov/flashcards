@@ -1,3 +1,24 @@
+def create_card_from_dict(data):
+    """
+    Construct a StudyCard Object from a dictionary object.
+
+    :param data: the dictionary object
+
+    :raises KeyError: when dictionary is missing a needed field to create obj.
+
+    :returns: StudyCard object
+    """
+    if 'question' not in data:
+        raise KeyError("Invalid data string. 'question' key is missing")
+    if 'answer' not in data:
+        raise KeyError("Invalid data string. 'answer' key is missing")
+
+    question = data['question']
+    answer = data['answer']
+
+    return StudyCard(question, answer)
+
+
 class StudyCard(object):
     """
     Class representing a question card.
@@ -55,11 +76,17 @@ class StudyCard(object):
 
         :param new_question: The new question
 
-        :raises BadQuestionErr: If the question is not of type str
+        :raises TypeError: If the question is not of type str
         """
         if isinstance(value, basestring):
             self._answer = value
         else:
             raise TypeError('Answer should be of type str')
 
+    def to_dict(self):
+        """
+        Convert this StudyCard to a dictionary.
 
+        :returns: a dictionary object representation of this StudyCard
+        """
+        return {'question': self.question, 'answer': self.answer}
