@@ -12,7 +12,8 @@ def create_from_dict(data):
 
     :param data: the dictionary object
 
-    :raises KeyError: when dictionary is missing a needed field to create obj.
+    :raises KeyError: when dictionary is missing a needed field to create obj
+    :raises ValueError: if cards field in data is not of type list
 
     :returns: StudySet object
     """
