@@ -1,7 +1,7 @@
 import unittest
 import mock
 
-from flashcards.cards import QuestionCard
+from flashcards.cards import StudyCard
 from flashcards.flasher import CardFlasher
 
 
@@ -11,8 +11,8 @@ class Test_CardFlasher(unittest.TestCase):
 
         # Add some cards to the study set
         self.cards = [
-            QuestionCard('q1', 'a1'),
-            QuestionCard('q2', 'a2')
+            StudyCard('q1', 'a1'),
+            StudyCard('q2', 'a2')
         ]
 
     def test_StudySetEnumerator(self):

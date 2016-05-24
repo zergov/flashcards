@@ -1,14 +1,14 @@
 import unittest
 
-from flashcards.cards import QuestionCard
+from flashcards.cards import StudyCard
 
 class TestQuestionCards(unittest.TestCase):
 
     def setUp(self):
-        self.card = QuestionCard('what is PI ?', '3.14159265359')
+        self.card = StudyCard('what is PI ?', '3.14159265359')
 
     def test_Card_class_exists(self):
-        self.assertIsNotNone(QuestionCard('meaning of life?', '42'))
+        self.assertIsNotNone(StudyCard('meaning of life?', '42'))
 
     def test_card_get_question(self):
         self.assertEqual('what is PI ?', self.card.question)

@@ -1,4 +1,4 @@
-from flashcards.cards import BaseCard
+from flashcards.cards import StudyCard
 
 
 class StudySet(object):
@@ -78,7 +78,7 @@ class StudySet(object):
 
         :param card: A subclass of flashcards.cards.BaseCard object.
         """
-        if isinstance(card, BaseCard):
+        if isinstance(card, StudyCard):
             self._cards.append(card)
         else:
             raise TypeError("A Set can only contain subclasses of "

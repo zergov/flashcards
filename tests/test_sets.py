@@ -1,7 +1,7 @@
 import unittest
 
 from flashcards.sets import StudySet
-from flashcards.cards import (QuestionCard, BaseCard)
+from flashcards.cards import StudyCard
 
 
 class TestStudySets(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestStudySets(unittest.TestCase):
                           self.set_instance, 'description', 1337)
 
     def test_set_add(self):
-        card = QuestionCard('What is my name?', 'Jonathan')
+        card = StudyCard('What is my name?', 'Jonathan')
         self.set_instance.add(card)
         self.assertEqual(len(self.set_instance._cards), 1)
         self.assertIn(card, self.set_instance._cards)
@@ -48,14 +48,14 @@ class TestStudySets(unittest.TestCase):
         self.assertNotIn(card, self.set_instance._cards)
 
     def test_set_get_card(self):
-        card = QuestionCard('What is my name?', 'Jonathan')
+        card = StudyCard('What is my name?', 'Jonathan')
         self.set_instance.add(card)
         c = self.set_instance.get(0)
         self.assertEqual(c, card)
 
     def test_set_remove_card(self):
-        card0 = QuestionCard('What is my name?', 'Jonathan')
-        card1 = QuestionCard("What is bird's name ?", "Gandalf")
+        card0 = StudyCard('What is my name?', 'Jonathan')
+        card1 = StudyCard("What is bird's name ?", "Gandalf")
         self.set_instance.add(card0)
         self.set_instance.add(card1)
 
@@ -65,9 +65,9 @@ class TestStudySets(unittest.TestCase):
         self.assertIn(card0, self.set_instance._cards)
 
     def test_iter_cards(self):
-        card0 = QuestionCard('What is my name?', 'Jonathan')
-        card1 = QuestionCard("What is bird's name ?", "Gandalf")
-        card2 = QuestionCard("What is the meaning of life ?", "42")
+        card0 = StudyCard('What is my name?', 'Jonathan')
+        card1 = StudyCard("What is bird's name ?", "Gandalf")
+        card2 = StudyCard("What is the meaning of life ?", "42")
         self.set_instance.add(card0)
         self.set_instance.add(card1)
         self.set_instance.add(card2)
@@ -75,6 +75,6 @@ class TestStudySets(unittest.TestCase):
         index = 0
         for card in self.set_instance:
             index += 1
-            self.assertIsInstance(card, BaseCard)
+            self.assertIsInstance(card, StudyCard)
 
         self.assertEqual(index, 3)

@@ -1,7 +1,20 @@
-class BaseCard(object):
+class StudyCard(object):
     """
-    Basic class representing a card.
+    Class representing a question card.
+
+    A question card is simple card containing a Question and an Answer.
     """
+
+    def __init__(self, question, answer):
+        """
+        Creates a Question card containing a question and an answer to the
+        question.
+
+        :param question: The question of the card.
+        :param answer: The answer to the question.
+        """
+        self._question = question
+        self._answer = answer
 
     @property
     def question(self):
@@ -50,19 +63,3 @@ class BaseCard(object):
             raise TypeError('Answer should be of type str')
 
 
-class QuestionCard(BaseCard):
-    """
-    Class representing a question card.
-
-    A question card is simple card containing a Question and an Answer.
-    """
-    def __init__(self, question, answer):
-        """
-        Creates a Question card containing a question and an answer to the
-        question.
-
-        :param question: The question of the card.
-        :param answer: The answer to the question.
-        """
-        self._question = question
-        self._answer = answer
