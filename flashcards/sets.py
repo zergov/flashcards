@@ -1,4 +1,46 @@
-from flashcards.cards import StudyCard
+from flashcards.cards import (StudyCard, create_card_from_dict)
+
+TITLE_KEY = 'title'
+DESC_KEY = 'description'
+CARDS_KEY = 'cards'
+
+
+def create_from_dict(data):
+    """
+    Construct a StudySet Object from a dictionary object.
+
+    :param data: the dictionary object
+
+    :raises KeyError: when dictionary is missing a needed field to create obj.
+
+    :returns: StudySet object
+    """
+    _assert_data_is_valid(data)
+
+    title = data[TITLE_KEY]
+    description = data[DESC_KEY]
+    cards = [create_card_from_dict(card) for card in data[CARDS_KEY]]
+
+    study_set = StudySet(title, description)
+
+    for card in cards:
+        study_set.add(card)
+
+    return study_set
+
+
+def _assert_data_is_valid(data):
+    """ Check that data received in `create_from_dict` has a valid format """
+
+    if TITLE_KEY not in data:
+        raise KeyError("Invalid data string. %s key is missing" % TITLE_KEY)
+    if DESC_KEY not in data:
+        raise KeyError("Invalid data string. %s key is missing" % DESC_KEY)
+    if CARDS_KEY not in data:
+        raise KeyError("Invalid data string. %s key is missing" % CARDS_KEY)
+    if not isinstance(data[CARDS_KEY], list):
+        raise ValueError("Invalid data type. %s value's should be a list"
+                         % CARDS_KEY)
 
 
 class StudySet(object):
@@ -14,7 +56,7 @@ class StudySet(object):
         :param description: The description for this study set.
         """
         self._title = title
-        self._description = description
+        self._description = '' if description is None else description
         self._cards = []
 
     def __iter__(self):
@@ -94,3 +136,16 @@ class StudySet(object):
         :param index: The index of the card
         """
         del self._cards[index]
+
+    def to_dict(self):
+        """
+        Get a dictionary object representing this StudySet.
+
+        :returns: a dictionary object representation of this StudySet.
+        """
+        serialized_cards = [c.to_dict() for c in self]
+
+        data = {TITLE_KEY: self.title, DESC_KEY: self.description}
+        data[CARDS_KEY] = serialized_cards
+
+        return data

@@ -1,7 +1,25 @@
 import unittest
 
+from flashcards import sets
 from flashcards.sets import StudySet
 from flashcards.cards import StudyCard
+
+
+class TestModuleFunction(unittest.TestCase):
+
+    def test_create_from_dict(self):
+        card = StudyCard('2+2=?', '4')
+
+        data = {'title': 'Maths', 'description': 'Math-145'}
+        data['cards'] = [card.to_dict()]
+
+        study_set = sets.create_from_dict(data)
+
+        self.assertEqual(study_set.title, 'Maths')
+        self.assertEqual(study_set.description, 'Math-145')
+        self.assertEqual(len(study_set), 1)
+        self.assertEqual(study_set.get(0).question, '2+2=?')
+        self.assertEqual(study_set.get(0).answer, '4')
 
 
 class TestStudySets(unittest.TestCase):
@@ -89,3 +107,16 @@ class TestStudySets(unittest.TestCase):
         self.set_instance.add(card2)
 
         self.assertEqual(len(self.set_instance), 3)
+
+    def test_to_dict(self):
+        card = StudyCard('What is my name?', 'Jonathan')
+        self.set_instance.add(card)
+
+        data = self.set_instance.to_dict()
+        expected = {'title': 'Maths', 'description': 'A study set about maths'}
+
+        # List of serialized cards in this set
+        cards = [c.to_dict() for c in self.set_instance]
+        expected['cards'] = cards
+
+        self.assertEqual(expected, data)
