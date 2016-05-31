@@ -18,5 +18,24 @@ class StudySession(object):
 
         :param study_strategy: an instance of StudyStrategy.
         """
-        for card in self._cards:
-            study_strategy.show(card)
+        study_strategy.start(self._cards)
+
+
+class SimpleStudyStrategy(object):
+    """
+    Simple linear study strategy. The cards are beeing showed one at
+    a time, in order.
+    """
+
+    def start(self, cards):
+        """
+        Start iterating over a StudyCard iterator.
+
+        Show the question of the card to the user. Wait for user input
+        before showing the answer. Wait again for user input to show next
+        card.
+
+        :param cards: StudyCard iterator.
+        """
+        for card in cards:
+            pass
