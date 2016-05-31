@@ -4,6 +4,7 @@ import mock
 from flashcards.sets import StudySet
 from flashcards.cards import StudyCard
 from flashcards.study import StudySession
+from flashcards.study import SimpleStudyStrategy
 
 
 def create_study_set():
@@ -52,5 +53,15 @@ class TestStudymodule(unittest.TestCase):
 
 class TestSimpleStudyStrategy(unittest.TestCase):
 
-    def test_start_check_sequence(self):
-        pass
+    def test_start_show_card_called(self):
+        # Test that the show_question function is called for every card in the
+        # the card iterator.
+
+        study_set = create_study_set()
+        strategy = SimpleStudyStrategy()
+
+        mock_show_question = mock.Mock()
+        strategy.show_question = mock_show_question
+
+        strategy.start(study_set)
+        self.assertEqual(mock_show_question.call_count, 4)

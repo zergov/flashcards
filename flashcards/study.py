@@ -38,4 +38,12 @@ class SimpleStudyStrategy(object):
         :param cards: StudyCard iterator.
         """
         for card in cards:
-            pass
+            self.show_question(card.question)
+
+    def show_question(self, question):
+        """
+        Display the current question to the user.
+
+        :param question: the question to display
+        """
+        pass
