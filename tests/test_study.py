@@ -1,4 +1,6 @@
 import unittest
+import mock
+
 from flashcards.sets import StudySet
 from flashcards.cards import StudyCard
 from flashcards.study import StudySession
@@ -32,3 +34,15 @@ class TestStudymodule(unittest.TestCase):
         ]
 
         return cards
+
+    def test_studySession_start_calls_strategy_show(self):
+
+        mock_strategy = mock.Mock()
+        mock_show = mock.Mock()
+        mock_strategy.attach_mock(mock_show, 'show')
+
+        study_set = self.create_study_set()
+        session = StudySession(study_set)
+        session.start(mock_strategy)
+
+        self.assertEqual(mock_show.call_count, 4)
