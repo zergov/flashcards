@@ -21,7 +21,7 @@ class BaseStudySession(object):
         :param question: the question to display
         """
         print question + '\n'
-        input('Press enter to see the answer.')
+        raw_input('Press enter to see the answer.')
 
     def show_answer(self, answer):
         """
@@ -30,4 +30,4 @@ class BaseStudySession(object):
         :param answer: the answer
         """
         print answer + '\n'
-        input('Press enter for the next question.')
+        raw_input('Press enter for the next question.')

@@ -7,32 +7,6 @@ STORAGE_DIR_NAME = '.flashcards'
 STUDY_SET_EXTENSION = '.json'
 
 
-def _get_storage_path():
-    """ Get the absolute storage path on the machine """
-    return os.path.join(os.path.expanduser('~'), STORAGE_DIR_NAME)
-
-
-def _generate_filename_from_str(string):
-    """
-    Generate a valid filename from a given string.
-
-    - replace all spaces and dashes with underscore.
-    - only keeps alphanumerical chars
-
-    :param string: the string to create the filename from
-
-    :returns: the generated string, a valid filename
-    """
-    keepchars = [' ', '-', '_']  # characters to keep in the filename
-    swapchars = {' ': '_', '-': '_'}  # keys are swapped by their values
-
-    for key, value in swapchars.items():
-        string = string.replace(key, value)
-
-    _ = [c for c in string if c.isalnum() or c is ' ' or c in keepchars]
-    return ''.join(_).rstrip()
-
-
 class FileStorage(object):
     """
     Utility object that manage the reading / saving of a file while assuring
@@ -172,3 +146,29 @@ class StudySetStorage(JSONFileStorage):
         # rename the name of this file by the title of this study set.
         filename = _generate_filename_from_str(study_set.title)
         self._rename_filename(filename)
+
+
+def _generate_filename_from_str(string):
+    """
+    Generate a valid filename from a given string.
+
+    - replace all spaces and dashes with underscore.
+    - only keeps alphanumerical chars
+
+    :param string: the string to create the filename from
+
+    :returns: the generated string, a valid filename
+    """
+    keepchars = [' ', '-', '_']  # characters to keep in the filename
+    swapchars = {' ': '_', '-': '_'}  # keys are swapped by their values
+
+    for key, value in swapchars.items():
+        string = string.replace(key, value)
+
+    _ = [c for c in string if c.isalnum() or c is ' ' or c in keepchars]
+    return ''.join(_).rstrip()
+
+
+def _get_storage_path():
+    """ Get the absolute storage path on the machine """
+    return os.path.join(os.path.expanduser('~'), STORAGE_DIR_NAME)

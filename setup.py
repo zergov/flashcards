@@ -10,4 +10,8 @@ setup(
     author_email='jonathan.lalande.1@ens.etsmtl.ca',
     description=DESCRIPTION,
     packages=find_packages(),
+    entry_points="""
+        [console_scripts]
+        flashcards=flashcards.main:cli
+    """
 )
