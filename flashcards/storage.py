@@ -7,6 +7,35 @@ STORAGE_DIR_NAME = '.flashcards'
 STUDY_SET_EXTENSION = '.json'
 
 
+def create_study_set_file(study_set):
+    """
+    Create a file and store the supplied study_set in it.
+
+    :param study_set: the study set to store.
+    """
+    filename = _generate_filename_from_str(study_set.title)
+    filepath = os.path.join(_get_storage_path(), filename)
+
+    if os.path.isfile(filepath) or os.path.exists(filepath):
+        raise IOError('A file already exist, cannot create study set.')
+
+    # Create the file
+    open(filepath, 'a').close()
+
+
+def store_study_set(study_set):
+    """
+    Store the supplied study set in the storage folder.
+
+    :param study_set: the study set to store.
+    """
+    filename = _generate_filename_from_str(study_set.title)
+    filepath = os.path.join(_get_storage_path(), filename)
+
+    storage_item = StudySetStorage(filepath)
+    storage_item.save(study_set)
+
+
 class FileStorage(object):
     """
     Utility object that manage the reading / saving of a file while assuring

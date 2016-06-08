@@ -9,4 +9,4 @@ def cli():
     pass
 
 
-cli.add_command(sets_commands.sets)
+cli.add_command(sets_commands.sets_group)
