@@ -3,8 +3,20 @@ import os
 from flashcards.utils import storage as storageUtils
 from flashcards import sets
 
+"""
+The directory name where all of the Flashcards data is stored on the machine.
+"""
 STORAGE_DIR_NAME = '.flashcards'
+
+
+"""
+The directory name where all of the Flashcards's study set data
+is stored on the machine.
+"""
 STUDY_SET_STORAGE_DIR = 'studysets'
+
+
+""" Default extension of a study set file on the machine """
 STUDY_SET_EXTENSION = '.json'
 
 
