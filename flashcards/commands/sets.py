@@ -21,11 +21,8 @@ def new(title, desc):
     If this study set does not exist, it is created.
     """
     study_set = sets.StudySet(title, desc)
-    print 'creating study set: %s' % title
     storage.create_study_set_file(study_set)
-    print 'study set storage file created.'
-    storage.store_study_set(study_set)
-    print 'study set successfully stored !'
+    click.echo('Study set created !')
 
 
 sets_group.add_command(new)
