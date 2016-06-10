@@ -52,6 +52,18 @@ def store_study_set(study_set):
     storage_item.save(study_set)
 
 
+def load_study_set(filepath):
+    """
+    Attempt to load the study set from a storage item.
+
+    :param filepath: the filepath of the study set file
+
+    :returns: StudySetStorage object
+    """
+    storageUtils.assert_valid_file(filepath)
+    return StudySetStorage(filepath)
+
+
 class StudySetStorage(storageUtils.JSONFileStorage):
     """
     Utility object to load and save a StudySet object from a

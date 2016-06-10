@@ -23,6 +23,17 @@ def generate_filename_from_str(string):
     return ''.join(_).rstrip()
 
 
+def assert_valid_file(filepath):
+    """
+    Raise an exception if the file at the given path is not a file or
+    does not exists.
+    """
+    if not os.path.isfile(filepath):
+        raise IOError("path: %s is not a file" % filepath)
+    if not os.path.exists(filepath):
+        raise IOError("path: %s does not exists" % filepath)
+
+
 class FileStorage(object):
     """
     Utility object that manage the reading / saving of a file while assuring
@@ -41,7 +52,7 @@ class FileStorage(object):
 
     def _load_raw_content(self):
         """Read and return the raw data in this file."""
-        self._assert_valid_file()
+        assert_valid_file(self._filepath)
 
         content = None
         with open(self._filepath, 'r') as file:
@@ -64,20 +75,10 @@ class FileStorage(object):
 
         :param content: the content to store in this file.
         """
-        self._assert_valid_file()
+        assert_valid_file(self._filepath)
 
         with open(self._filepath, 'w') as file:
             file.write(content)
-
-    def _assert_valid_file(self):
-        """
-        Raise an exception if the file at the given path is not a file or
-        does not exists.
-        """
-        if not os.path.isfile(self._filepath):
-            raise IOError("path: %s is not a file" % self._filepath)
-        if not os.path.exists(self._filepath):
-            raise IOError("path: %s does not exists" % self._filepath)
 
     def _rename_filename(self, filename):
         """
