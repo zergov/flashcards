@@ -14,7 +14,7 @@ class TestStorageModule(unittest.TestCase):
     def test_get_storage_path(self, mock_expand_usr):
 
         mock_expand_usr.return_value = '/home/admin'
-        self.assertEqual('/home/admin/.flashcards', storage._get_storage_path())
+        self.assertEqual('/home/admin/.flashcards', storage.storage_path())
 
     def test_generate_filename_from_str_spaces(self):
         result = storageUtils.generate_filename_from_str('file name')

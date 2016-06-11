@@ -88,12 +88,12 @@ class StudySetStorage(storageUtils.JSONFileStorage):
         self._rename_filename(filename)
 
 
-def _get_storage_path():
+def storage_path():
     """ Get the absolute storage path on the machine """
     return os.path.join(os.path.expanduser('~'), STORAGE_DIR_NAME)
 
 
-def _get_study_set_storage_path():
+def studyset_storage_path():
     """ Get the absolute storage path for the study sets on the machine """
     return os.path.join(os.path.expanduser('~'),
                         STORAGE_DIR_NAME, STUDY_SET_STORAGE_DIR)
@@ -110,4 +110,4 @@ def _generate_study_set_filepath(study_set):
     """
     filename = storageUtils.generate_filename_from_str(study_set.title)
     filename = filename + STUDY_SET_EXTENSION
-    return os.path.join(_get_study_set_storage_path(), filename)
+    return os.path.join(studyset_storage_path(), filename)
