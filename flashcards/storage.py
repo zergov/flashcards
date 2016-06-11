@@ -20,13 +20,13 @@ STUDY_SET_STORAGE_DIR = 'studysets'
 STUDY_SET_EXTENSION = '.json'
 
 
-def create_study_set_file(study_set):
+def create_studyset_file(studyset):
     """
-    Create a file and store the supplied study_set in it.
+    Create a file and store the supplied studyset in it.
 
     :param study_set: the study set to store.
     """
-    filepath = _generate_study_set_filepath(study_set)
+    filepath = _generate_studyset_filepath(studyset)
 
     if os.path.isfile(filepath) or os.path.exists(filepath):
         raise IOError('A file already exist, cannot create study set.')
@@ -35,10 +35,10 @@ def create_study_set_file(study_set):
     open(filepath, 'a').close()
 
     # Store the study set in the file
-    store_study_set(study_set)
+    store_studyset(studyset)
 
 
-def store_study_set(study_set):
+def store_studyset(studyset):
     """
     Store the supplied study set in the storage folder.
 
@@ -46,13 +46,13 @@ def store_study_set(study_set):
 
     :param study_set: the study set to store.
     """
-    filepath = _generate_study_set_filepath(study_set)
+    filepath = _generate_studyset_filepath(studyset)
 
     storage_item = StudySetStorage(filepath)
-    storage_item.save(study_set)
+    storage_item.save(studyset)
 
 
-def load_study_set(filepath):
+def load_studyset(filepath):
     """
     Attempt to load the study set from a storage item.
 
@@ -99,7 +99,7 @@ def studyset_storage_path():
                         STORAGE_DIR_NAME, STUDY_SET_STORAGE_DIR)
 
 
-def _generate_study_set_filepath(study_set):
+def _generate_studyset_filepath(study_set):
     """
     Generate the absolute filepath in which the given study set
     should be stored
