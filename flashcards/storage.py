@@ -111,3 +111,32 @@ def _generate_study_set_filepath(study_set):
     filename = storageUtils.generate_filename_from_str(study_set.title)
     filename = filename + STUDY_SET_EXTENSION
     return os.path.join(studyset_storage_path(), filename)
+
+
+def verify_storage_dir_integrity():
+    """ Check that the storage directory is intact. """
+
+    path = storage_path()
+    if not os.path.exists(path) or os.path.isfile(path):
+        _create_storage_dir()
+
+    path = studyset_storage_path()
+    if not os.path.exists(path) or os.path.isfile(path):
+        _create_studyset_storage_dir()
+
+
+def _create_storage_dir():
+    """ Create the storage directory in the home folder. """
+    if os.path.exists(storage_path()) and os.path.isdir(storage_path()):
+        raise IOError('Storage directory already exists.')
+
+    os.mkdir(storage_path())
+
+
+def _create_studyset_storage_dir():
+    """ Create the studyset storage directory in the storage directory. """
+    path = studyset_storage_path()
+    if os.path.exists(path) and os.path.isdir(path):
+        raise IOError('Studyset storage directory already exists.')
+
+    os.mkdir(path)

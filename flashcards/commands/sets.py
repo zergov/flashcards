@@ -29,8 +29,7 @@ def new(title, desc):
 @click.command('select')
 @click.argument('studyset')
 def select(studyset):
-    storage_path = storage.studyset_storage_path()
-    studyset_path = os.path.join(storage_path, studyset)
+    studyset_path = os.path.join(storage.studyset_storage_path(), studyset)
     print studyset_path
 
 
