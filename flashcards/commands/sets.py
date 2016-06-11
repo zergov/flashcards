@@ -1,3 +1,4 @@
+import os
 import click
 
 from flashcards import sets
@@ -25,4 +26,13 @@ def new(title, desc):
     click.echo('Study set created !')
 
 
+@click.command('select')
+@click.argument('studyset')
+def select(studyset):
+    storage_path = storage._get_study_set_storage_path()
+    studyset_path = os.path.join(storage_path, studyset)
+    print studyset_path
+
+
 sets_group.add_command(new)
+sets_group.add_command(select)
