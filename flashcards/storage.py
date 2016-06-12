@@ -75,7 +75,7 @@ def link_selected_studyset(filepath):
 
     :param filepath: the filepath of the studyset
     """
-    linkpath = os.path.join(storage_path(), SELECTED_STUDYSET_NAME)
+    linkpath = selected_studyset_path()
 
     # Force symlink
     try:
@@ -85,6 +85,16 @@ def link_selected_studyset(filepath):
         if e.errno == errno.EEXIST:
             os.remove(linkpath)
             os.symlink(filepath, linkpath)
+
+
+def load_selected_studyset():
+    """
+    Load and return the currently selected studyset.
+
+    :returns: StudySet object.
+    """
+    item = StudySetStorage(selected_studyset_path())
+    return item.load()
 
 
 class StudySetStorage(storageUtils.JSONFileStorage):
@@ -120,6 +130,14 @@ def studyset_storage_path():
     """ Get the absolute storage path for the study sets on the machine """
     return os.path.join(os.path.expanduser('~'),
                         STORAGE_DIR_NAME, STUDY_SET_STORAGE_DIR)
+
+
+def selected_studyset_path():
+    """
+    Get the absolute path for the currently selected studyset
+    on the machine.
+    """
+    return os.path.join(storage_path(), SELECTED_STUDYSET_NAME)
 
 
 def _generate_studyset_filepath(study_set):
