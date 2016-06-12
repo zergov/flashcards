@@ -14,6 +14,23 @@ def cli():
     pass
 
 
+@click.command('status')
+def status():
+    """
+    Show status of the application.
+
+    Displaying the currently selected studyset.
+        - studyset title
+        - studyset description
+        - number of cards
+    """
+    studyset = storage.load_selected_studyset()
+    data = (studyset.title, len(studyset._cards))
+    click.echo('Currently using studyset: %s (%s cards)\n' % data)
+    click.echo('Description: \n%s' % studyset.description)
+
+
 # Add the subcommands to this main entry point.
+cli.add_command(status)
 cli.add_command(sets_commands.sets_group)
 cli.add_command(cards_commands.cards_group)
