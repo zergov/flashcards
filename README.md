@@ -1,7 +1,7 @@
 # flashcards
 CLI application that focus on quickly creating study flash cards. 
 
-# What is flashcards
+## What is flashcards
 Flascards is a small CLI Study tools. It focuses on creating study flashcards easily and quickly.
 The study flow of the flashcards method works like this:
 
@@ -12,3 +12,15 @@ head. When the user thinks he got the right answer, he flips the card to see if 
 The process keeps going until all the cards has been answered.
 
 This method should be repeated until the user can answer most of the cards without failling to find the right answer.
+
+## Commands (__WORK IN PROGRESS__)
+
+* flashcards status: display the status of the currently selected studyset.
+
+###sets
+    
+* flashcards sets new : creates a new studyset.
+* flashcards sets select: select a studyset. (every created card will be stored in the selected studyset)
+
+###cards
+* flashcards cards add: add a studycard in the currently selected studyset.
