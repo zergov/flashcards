@@ -30,7 +30,10 @@ def new(title, desc):
 @click.argument('studyset')
 def select(studyset):
     studyset_path = os.path.join(storage.studyset_storage_path(), studyset)
-    print studyset_path
+    storage.link_selected_studyset(studyset_path)
+    studyset_obj = storage.load_studyset(studyset_path).load()
+    click.echo('Selected studyset: %s' % studyset_obj.title)
+    click.echo('Any created card will be automatically added to this studyset.')
 
 
 sets_group.add_command(new)

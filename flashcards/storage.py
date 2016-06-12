@@ -1,4 +1,5 @@
 import os
+import errno
 
 from flashcards.utils import storage as storageUtils
 from flashcards import sets
@@ -18,6 +19,10 @@ STUDY_SET_STORAGE_DIR = 'studysets'
 
 """ Default extension of a study set file on the machine """
 STUDY_SET_EXTENSION = '.json'
+
+
+""" Selected studyset filename """
+SELECTED_STUDYSET_NAME = '.SELECTEDSTUDYSET'
 
 
 def create_studyset_file(studyset):
@@ -62,6 +67,24 @@ def load_studyset(filepath):
     """
     storageUtils.assert_valid_file(filepath)
     return StudySetStorage(filepath)
+
+
+def link_selected_studyset(filepath):
+    """
+    Create a symbolic link to the selected studyset.
+
+    :param filepath: the filepath of the studyset
+    """
+    linkpath = os.path.join(storage_path(), SELECTED_STUDYSET_NAME)
+
+    # Force symlink
+    try:
+        os.symlink(filepath, linkpath)
+
+    except OSError, e:
+        if e.errno == errno.EEXIST:
+            os.remove(linkpath)
+            os.symlink(filepath, linkpath)
 
 
 class StudySetStorage(storageUtils.JSONFileStorage):
