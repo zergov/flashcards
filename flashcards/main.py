@@ -1,6 +1,8 @@
 import click
+import os
 
 from flashcards import storage
+from flashcards.study import BaseStudySession
 from flashcards.commands import sets as sets_commands
 from flashcards.commands import cards as cards_commands
 
@@ -30,7 +32,19 @@ def status():
     click.echo('Description: \n%s' % studyset.description)
 
 
+@click.command('study')
+@click.argument('studyset')
+def study(studyset):
+    """ Start a study session on the supplied studyset. """
+    studyset_path = os.path.join(storage.studyset_storage_path(), studyset)
+    studyset = storage.load_studyset(studyset_path).load()
+
+    studysession = BaseStudySession()
+    studysession.start(studyset)
+
+
 # Add the subcommands to this main entry point.
 cli.add_command(status)
+cli.add_command(study)
 cli.add_command(sets_commands.sets_group)
 cli.add_command(cards_commands.cards_group)

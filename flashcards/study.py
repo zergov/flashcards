@@ -1,3 +1,6 @@
+import click
+
+
 class BaseStudySession(object):
     """
     Object that encapsulate a Study session. This object cycle through
@@ -11,6 +14,7 @@ class BaseStudySession(object):
         :param study_strategy: an instance of StudyStrategy.
         """
         for card in cards:
+            click.clear()
             self.show_question(card.question)
             self.show_answer(card.answer)
 
@@ -20,8 +24,9 @@ class BaseStudySession(object):
 
         :param question: the question to display
         """
+        print '\n'
         print question + '\n'
-        raw_input('Press enter to see the answer.')
+        click.pause('...')
 
     def show_answer(self, answer):
         """
@@ -29,5 +34,6 @@ class BaseStudySession(object):
 
         :param answer: the answer
         """
+        print '\n'
         print answer + '\n'
-        raw_input('Press enter for the next question.')
+        click.pause('Press any key to show next question')

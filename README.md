@@ -16,6 +16,7 @@ This method should be repeated until the user can answer most of the cards witho
 ## Commands (__WORK IN PROGRESS__)
 
 * flashcards status: display the status of the currently selected studyset.
+* flashcards study: study a specific studyset.
 
 ###sets
     
