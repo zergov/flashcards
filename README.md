@@ -75,7 +75,6 @@ To see the status of this studyset, simply run this command:
 $ flashcards status
 
 Currently using studyset: Mathematics (1 cards)
-
 Description: Some math questions
 ```
 
@@ -95,8 +94,8 @@ To select a different studyset, use the following command:
 # Let's say we want to select our "French" studyset
 $ flashcards sets select French
 
-[cli][info] Selected studyset: French
-[cli][info] Any created card will be automatically added to this studyset.
+selected studyset: French
+any created card will be automatically added to this studyset.
 ```
 
 When using tabcomplete, autocomplete should propose a list of existing studysets after the `select` keyword.
@@ -110,6 +109,4 @@ When installing with pip, auto completion should work out of the box.
 ## Storage directory
 
 By default, studysets are stored in the following path:
-```
-~/.flashcards/studysets
 ```
