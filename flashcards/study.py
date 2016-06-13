@@ -1,3 +1,12 @@
+"""
+flashcards.study
+~~~~~~~~~~~~~~~~~~~
+
+Contain the StudySession logic.
+This module should host the class that subclasses BaseStudySession.
+"""
+
+
 import click
 
 
