@@ -13,6 +13,7 @@ setup(
     description=DESCRIPTION,
     packages=find_packages(),
     install_requires=REQUIREMENTS,
+    data_files=[('/etc/bash_completion.d/', ['flashcards-complete.sh'])],
     entry_points="""
         [console_scripts]
         flashcards=flashcards.main:cli
