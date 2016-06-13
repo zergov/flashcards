@@ -99,9 +99,17 @@ $ flashcards sets select French
 [cli][info] Any created card will be automatically added to this studyset.
 ```
 
-Autocomplete should propose a list of existing studysets.
+When using tabcomplete, autocomplete should propose a list of existing studysets after the `select` keyword.
 
 
 ## Bash autocomplete
 
 When installing with pip, auto completion should work out of the box.
+
+
+## Storage directory
+
+By default, studysets are stored in the following path:
+```
+~/.flashcards/studysets
+```
