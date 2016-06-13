@@ -110,3 +110,5 @@ When installing with pip, auto completion should work out of the box.
 
 By default, studysets are stored in the following path:
 ```
+~/.flashcards/studysets
+```
