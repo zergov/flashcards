@@ -67,7 +67,7 @@ $ flashcards cards add
 Card added to the studyset !
 ```
 
-Congratulations ! You just created your first studyset ! 
+Congratulations ! You just added your first flashcards to your studyset ! 
 
 To see the status of this studyset, simply run this command:
 
