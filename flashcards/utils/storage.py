@@ -1,3 +1,11 @@
+"""
+flashcards.utils.storage
+~~~~~~~~~~~~~~~~~~~
+
+Contain utility classes and methods related to the storage module.
+"""
+
+
 import os
 import json
 
