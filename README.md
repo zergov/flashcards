@@ -39,8 +39,8 @@ letting you know that the studyset has been created.
 ```
 $ flashcards sets new
 
-$ Title of the study set: Mathematics
-$ Description for the study set (optional): Some math questions.
+[cli][prompt] Title of the study set: Mathematics
+[cli][prompt] Description for the study set: Some math questions.
 
 Study set created ! 
 ```
@@ -61,8 +61,8 @@ letting you know that the flashcard has been added to the studyset.
 ```
 $ flashcards cards add
 
-$ Question: 2 + 2 = ?
-$ Answer: 4 (duhh)
+[cli][prompt] Question: 2 + 2 = ?
+[cli][prompt] Answer: 4 (duhh)
 
 Card added to the studyset !
 ```
