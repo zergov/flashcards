@@ -36,7 +36,8 @@ def select(studyset):
     storage.link_selected_studyset(studyset_path)
     studyset_obj = storage.load_studyset(studyset_path).load()
     click.echo('Selected studyset: %s' % studyset_obj.title)
-    click.echo('Any created card will be automatically added to this studyset.')
+    click.echo('Next created cards will be automatically added '
+               'to this studyset.')
 
 
 sets_group.add_command(new)
