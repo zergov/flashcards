@@ -88,17 +88,20 @@ This means that the application is currently focused on this studyset. Every new
 will be stored in this studyset. Also, the `status` command will show informations on the currently selected
 studyset.
 
-Read the next section to learn how to select a different studyset.
 
-## Commands (__WORK IN PROGRESS__)
+To select a different studyset, use the following command:
 
-* flashcards status: display the status of the currently selected studyset.
-* flashcards study: study a specific studyset.
+```
+# Let's say we want to select our "French" studyset
+$ flashcards sets select French
 
-###sets
-    
-* flashcards sets new : creates a new studyset.
-* flashcards sets select: select a studyset. (every created card will be stored in the selected studyset)
+[cli][info] Selected studyset: French
+[cli][info] Any created card will be automatically added to this studyset.
+```
 
-###cards
-* flashcards cards add: add a studycard in the currently selected studyset.
+Autocomplete should propose a list of existing studysets.
+
+
+## Bash autocomplete
+
+When installing with pip, auto completion should work out of the box.
