@@ -17,16 +17,21 @@ def add(question, answer):
     """ Add a studycard to the currently selected studyset. """
 
     # Load the currently selected studyset
-    studyset = storage.load_selected_studyset()
+    try:
+        studyset = storage.load_selected_studyset()
 
-    # Create the card and add it to the studyset
-    card = StudyCard(question, answer)
-    studyset.add(card)
+        # Create the card and add it to the studyset
+        card = StudyCard(question, answer)
+        studyset.add(card)
 
-    # Update the studyset by overwriting the old information.
-    storage.store_studyset(studyset)
+        # Update the studyset by overwriting the old information.
+        storage.store_studyset(studyset)
 
-    click.echo('Card added to the studyset !')
+        click.echo('Card added to the studyset !')
+
+    except IOError:
+        click.echo('There is no studyset currently selected. '
+                   'Select a studyset to add a card.')
 
 
 cards_group.add_command(add)
