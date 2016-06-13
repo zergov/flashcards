@@ -33,8 +33,7 @@ class BaseStudySession(object):
 
         :param question: the question to display
         """
-        print '\n'
-        print question + '\n'
+        click.echo('\n' + question + '\n')
         click.pause('...')
 
     def show_answer(self, answer):
@@ -43,6 +42,5 @@ class BaseStudySession(object):
 
         :param answer: the answer
         """
-        print '\n'
-        print answer + '\n'
+        click.echo('\n' + answer + '\n')
         click.pause('Press any key to show next question')
