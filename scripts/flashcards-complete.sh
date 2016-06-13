@@ -3,11 +3,6 @@ _flashcards_completion() {
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}" 
-
-    #
-    #  Custom completion on `flashcards sets select` command.
-    #
-    opts="flashcards sets select"
     
     case "${prev}" in
         select)
