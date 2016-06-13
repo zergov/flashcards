@@ -27,7 +27,7 @@ def status():
         - number of cards
     """
     studyset = storage.load_selected_studyset()
-    data = (studyset.title, len(studyset._cards))
+    data = (studyset.title, len(studyset))
     click.echo('Currently using studyset: %s (%s cards)\n' % data)
     click.echo('Description: \n%s' % studyset.description)
 
