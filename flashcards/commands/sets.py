@@ -22,7 +22,10 @@ def new(title, desc):
     If this study set does not exist, it is created.
     """
     study_set = sets.StudySet(title, desc)
-    storage.create_studyset_file(study_set)
+    filepath = storage.create_studyset_file(study_set)
+
+    # automatically select this studyset
+    storage.link_selected_studyset(filepath)
     click.echo('Study set created !')
 
 

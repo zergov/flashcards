@@ -50,6 +50,7 @@ def create_studyset_file(studyset):
 
     # Store the study set in the file
     store_studyset(studyset)
+    return filepath
 
 
 def store_studyset(studyset):
