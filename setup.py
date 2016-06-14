@@ -7,7 +7,7 @@ DESCRIPTION = ("CLI application that focus on quickly creating "
 REQUIREMENTS = ['click==6.6']
 
 setup(
-    name='flashcards',
+    name='pyflashcards',
     author='Jonathan Lalande',
     author_email='jonathan.lalande.1@ens.etsmtl.ca',
     version='1.0.0',
