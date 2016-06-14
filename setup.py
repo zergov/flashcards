@@ -10,6 +10,8 @@ setup(
     name='flashcards',
     author='Jonathan Lalande',
     author_email='jonathan.lalande.1@ens.etsmtl.ca',
+    version='1.0.0',
+    license='MIT',
     description=DESCRIPTION,
     packages=find_packages(),
     install_requires=REQUIREMENTS,
