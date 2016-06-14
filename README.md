@@ -107,6 +107,31 @@ any created card will be automatically added to this studyset.
 When using tabcomplete, autocomplete should propose a list of existing studysets after the `select` keyword.
 
 
+## Studying a studyset
+
+Once you're satisfied by your studyset, you can start studying it. 
+To study a studyset, run the following command: 
+
+```
+# When using tabcomplete, autocomplete should propose a list of existing studysets after the `study` keyword.
+# Let's say we want to study our "French" studyset
+
+$ flashcards study French
+```
+
+This command will launch a study session for the "French" studyset.
+
+During a study session, the application will iterates through the cards in your studyset.
+For every card, the question of the card will be displayed. The program will then wait for any input before showing the answer to this question.
+
+The goal here is to answer the question in your head. Once you think you got the question's answer, press any key to see if you were right ! 
+
+
+## Study strategies
+
+Currently, flashcards only has a linear strategy for studying. This mean that the questions will always be displayed in the same order.
+Eventually, the program will offer different study strategies. 
+
 ## Bash autocomplete
 
 When installing with pip, auto completion should work out of the box.
