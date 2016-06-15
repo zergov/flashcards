@@ -127,10 +127,19 @@ For every card, the question of the card will be displayed. The program will the
 The goal here is to answer the question in your head. Once you think you got the question's answer, press any key to see if you were right ! 
 
 
-## Study strategies
+## Study modes
 
-Currently, flashcards only has a linear strategy for studying. This mean that the questions will always be displayed in the same order.
-Eventually, the program will offer different study strategies. 
+
+Currently, flashcards only has two study modes: Linear and Shuffled.
+    *linear: The default study modes is linear. In linear mode, the cards will be displayed in order, from the first one added to the last one.
+    *shuffled: In shuffled mode, the cards are shuffled, this means that the order of the cards will be randomized.
+
+To choose a study mode, simply pass a `--mode` parameter to the study command:
+
+```
+# choosing the shuffled mode
+$ flashcards study <set> --mode shuffled
+```
 
 ## Bash autocomplete
 
