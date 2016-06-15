@@ -7,8 +7,9 @@ Contain commands and sub-commands grouping logic.
 """
 
 
-import click
 import os
+
+import click
 
 from flashcards import storage
 from flashcards import study

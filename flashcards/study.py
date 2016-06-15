@@ -12,8 +12,6 @@ import random
 import click
 
 
-
-
 class BaseStudySession(object):
     """
     Basic Object that encapsulate a Study session.
