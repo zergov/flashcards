@@ -4,8 +4,6 @@ flashcards.sets
 
 Contain the StudySet object and logic related to it.
 """
-
-
 from collections import OrderedDict
 
 from flashcards import cards

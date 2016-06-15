@@ -4,8 +4,6 @@ flashcards.commands.sets
 
 Contains the commands and subcommands related to the sets resource.
 """
-
-
 import os
 
 import click

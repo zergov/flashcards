@@ -5,8 +5,6 @@ flashcards.storage
 Contain the logic to load and save items in the Flashcards
 storage directory on this machine.
 """
-
-
 import os
 import errno
 

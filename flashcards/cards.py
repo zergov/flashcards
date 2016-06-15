@@ -4,8 +4,6 @@ flashcards.cards
 
 Contain the StudyCard object and logic related to it.
 """
-
-
 from collections import OrderedDict
 
 # Serialization key's

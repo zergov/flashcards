@@ -4,8 +4,6 @@ flashcards.commands.cards
 
 Contains the commands and subcommands related to the cards resource.
 """
-
-
 import click
 
 from flashcards import storage
