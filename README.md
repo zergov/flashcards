@@ -131,8 +131,9 @@ The goal here is to answer the question in your head. Once you think you got the
 
 
 Currently, flashcards only has two study modes: Linear and Shuffled.
-    *linear: The default study modes is linear. In linear mode, the cards will be displayed in order, from the first one added to the last one.
-    *shuffled: In shuffled mode, the cards are shuffled, this means that the order of the cards will be randomized.
+* linear `--mode linear`: The default study modes is linear. In linear mode, the cards will be displayed in order, from the first one added to the last one.
+
+* shuffled `--mode shuffled`: In shuffled mode, the cards are shuffled, this means that the order of the cards will be randomized.
 
 To choose a study mode, simply pass a `--mode` parameter to the study command:
 
