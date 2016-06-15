@@ -4,6 +4,7 @@ import mock
 from flashcards.sets import StudySet
 from flashcards.cards import StudyCard
 from flashcards.study import BaseStudySession
+from flashcards.study import ShuffledStudySession
 
 
 def create_study_set():
@@ -49,5 +50,25 @@ class TestBasicStudyStrategy(unittest.TestCase):
         session.show_answer = mock_show_answer
 
         session.start(study_set)
+        self.assertEqual(4, mock_show_question.call_count)
+        self.assertEqual(4, mock_show_answer.call_count)
+
+
+class TestShuffledStudyStrategy(unittest.TestCase):
+
+    @mock.patch('flashcards.study.random.shuffle')
+    def test_cards_are_shuffled(self, mock_shuffle):
+
+        mock_show_question = mock.Mock()
+        mock_show_answer = mock.Mock()
+
+        study_set = create_study_set()
+
+        session = ShuffledStudySession()
+        session.show_question = mock_show_question
+        session.show_answer = mock_show_answer
+
+        session.start(study_set)
+        self.assertEqual(1, mock_shuffle.call_count)
         self.assertEqual(4, mock_show_question.call_count)
         self.assertEqual(4, mock_show_answer.call_count)

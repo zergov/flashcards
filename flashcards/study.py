@@ -7,6 +7,8 @@ This module should host the class that subclasses BaseStudySession.
 """
 
 
+import random
+
 import click
 
 
@@ -17,10 +19,9 @@ class BaseStudySession(object):
     """
     def start(self, cards):
         """
-        Start a StudySession with the given study strategy.
+        Start a StudySession with the iterator of cards given.
 
-        :param cards: cards itterator.
-        :param study_strategy: an instance of StudyStrategy.
+        :param cards: cards iterator.
         """
         for card in cards:
             click.clear()
@@ -44,3 +45,22 @@ class BaseStudySession(object):
         """
         click.echo('\n' + answer + '\n')
         click.pause('Press any key to show next question')
+
+
+class ShuffledStudySession(BaseStudySession):
+    """
+    StudySession that shuffles the cards before iterating on them.
+    """
+
+    def start(self, cards):
+        """
+        Start a studySession with the iterator of cards given.
+        The cards are shuffled before beeing displayed.
+
+        :param cards: cards iterator.
+        """
+        # Shuffle the given cards iterator
+        cards_list = list(cards)
+        random.shuffle(cards_list)
+
+        super(ShuffledStudySession, self).start(cards_list)
