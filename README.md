@@ -104,16 +104,22 @@ selected studyset: French
 any created card will be automatically added to this studyset.
 ```
 
-When using tabcomplete, autocomplete should propose a list of existing studysets after the `select` keyword.
-
+When using tabcomplete, autocomplete should propose a list of existing studysets.
+If it doesn't, you will need to specify the path to the studyset file. Studysets are located at:
+```
+~/.flashcards/studysets/
+```
 
 ## Studying a studyset
 
-Once you're satisfied by your studyset, you can start studying it. 
+Once you're satisfied with your studyset, you can start studying it. 
 To study a studyset, run the following command: 
 
 ```
 # When using tabcomplete, autocomplete should propose a list of existing studysets after the `study` keyword.
+# If it doesn't, you will need to specify the path to the studyset file. Studysets are located at:
+# ~/.flashcards/studysets/
+
 # Let's say we want to study our "French" studyset
 
 $ flashcards study French
@@ -129,7 +135,6 @@ The goal here is to answer the question in your head. Once you think you got the
 
 ## Study modes
 
-
 Currently, flashcards only has two study modes: Linear and Shuffled.
 * linear `--mode linear`: The default study modes is linear. In linear mode, the cards will be displayed in order, from the first one added to the last one.
 
@@ -144,8 +149,11 @@ $ flashcards study <set> --mode shuffled
 
 ## Bash autocomplete
 
-When installing with pip, auto completion should work out of the box.
+When installing with pip, auto completion should work out of the box for __linux__ distributions.
 
+It hasn't been tested on __windows__.
+
+For __OSX__, you might have to copy or reference the [flashcards-complete.sh](flashcards-complete.sh) script to your `.bash_profile` file.
 
 ## Storage directory
 
