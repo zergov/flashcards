@@ -47,12 +47,13 @@ def status_cmd():
 
 @click.command('study')
 @click.argument('studyset')
-def study_cmd(studyset):
+@click.option('--mode', default=None)
+def study_cmd(studyset, mode):
     """ Start a study session on the supplied studyset. """
     studyset_path = os.path.join(storage.studyset_storage_path(), studyset)
     studyset = storage.load_studyset(studyset_path).load()
 
-    studysession = study.BaseStudySession()
+    studysession = study.get_study_session_template(mode)
     studysession.start(studyset)
 
 
