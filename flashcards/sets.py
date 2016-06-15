@@ -117,16 +117,6 @@ class StudySet(object):
         else:
             raise TypeError("StudySet description should be of type str")
 
-    def get(self, index):
-        """
-        Get a card from the set by its index.
-
-        :param index: The index of the card
-
-        :returns: The BaseCard object.
-        """
-        return self._cards[index]
-
     def add(self, card):
         """
         Add a card to the end of this set.
@@ -138,14 +128,6 @@ class StudySet(object):
         else:
             raise TypeError("A Set can only contain instances of "
                             "StudyCard objects.")
-
-    def remove(self, index):
-        """
-        Remove a card by its index
-
-        :param index: The index of the card
-        """
-        del self._cards[index]
 
     def to_dict(self):
         """

@@ -18,8 +18,8 @@ class TestModuleFunction(unittest.TestCase):
         self.assertEqual(study_set.title, 'Maths')
         self.assertEqual(study_set.description, 'Math-145')
         self.assertEqual(len(study_set), 1)
-        self.assertEqual(study_set.get(0).question, '2+2=?')
-        self.assertEqual(study_set.get(0).answer, '4')
+        self.assertEqual(study_set._cards[0].question, '2+2=?')
+        self.assertEqual(study_set._cards[0].answer, '4')
 
 
 class TestStudySets(unittest.TestCase):
@@ -68,7 +68,7 @@ class TestStudySets(unittest.TestCase):
     def test_set_get_card(self):
         card = StudyCard('What is my name?', 'Jonathan')
         self.set_instance.add(card)
-        c = self.set_instance.get(0)
+        c = self.set_instance._cards[0]
         self.assertEqual(c, card)
 
     def test_set_remove_card(self):
@@ -77,7 +77,7 @@ class TestStudySets(unittest.TestCase):
         self.set_instance.add(card0)
         self.set_instance.add(card1)
 
-        self.set_instance.remove(1)  # Remove the Gandalf card
+        del self.set_instance._cards[1]  # Remove the Gandalf card
         self.assertEqual(len(self.set_instance._cards), 1)
         self.assertNotIn(card1, self.set_instance._cards)
         self.assertIn(card0, self.set_instance._cards)
