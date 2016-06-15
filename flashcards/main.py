@@ -17,8 +17,10 @@ from flashcards.commands import cards as cards_commands
 
 @click.group()
 def cli():
-    """ Main entry point of the application """
-
+    """
+    Command line application that focus on creating decks of flashcards
+    quickly and easily.
+    """
     # Verify that the storage directory is present.
     storage.verify_storage_dir_integrity()
     pass
@@ -46,9 +48,13 @@ def status_cmd():
 
 @click.command('study')
 @click.argument('studyset')
-@click.option('--mode', default=None)
+@click.option('-m', '--mode', default=None)
 def study_cmd(studyset, mode):
-    """ Start a study session on the supplied studyset. """
+    """
+    Start a study session.
+
+    Study the studyset passed via the studyset argument.
+    """
     studyset_path = os.path.join(storage.studyset_storage_path(), studyset)
     studyset = storage.load_studyset(studyset_path).load()
 
