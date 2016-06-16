@@ -29,6 +29,9 @@ class BaseStudySession(object):
 
         :param cards: cards iterator.
         """
+        self.question_num = len(cards)
+        self.question_count = 1  # starts at 1 for display convenience
+
         for card in cards:
             click.clear()
             self.show_question(card.question)
@@ -40,6 +43,8 @@ class BaseStudySession(object):
 
         :param question: the question to display
         """
+        header = '[QUESTION %s / %s]' % (self.question_count, self.question_num)
+        click.echo(header)
         click.echo('\n' + question + '\n')
         click.pause('...')
 
@@ -49,6 +54,7 @@ class BaseStudySession(object):
 
         :param answer: the answer
         """
+        self.question_count += 1
         click.echo('\n' + answer + '\n')
         click.pause('Press any key to show next question')
 
