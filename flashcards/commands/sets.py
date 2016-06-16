@@ -39,6 +39,12 @@ def new(title, desc):
 @click.command('select')
 @click.argument('studyset')
 def select(studyset):
+    """
+    Select a studyset.
+
+    Focus on a studyset, every new added cards are going to be put directly in
+    this studyset.
+    """
     studyset_path = os.path.join(storage.studyset_storage_path(), studyset)
     storage.link_selected_studyset(studyset_path)
     studyset_obj = storage.load_studyset(studyset_path).load()
