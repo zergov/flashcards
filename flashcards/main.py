@@ -38,9 +38,11 @@ def status_cmd():
     """
     try:
         studyset = storage.load_selected_studyset()
-        data = (studyset.title, len(studyset))
-        click.echo('Currently using studyset: %s (%s cards)\n' % data)
-        click.echo('Description: \n%s' % studyset.description)
+
+        click.echo('Currently selected studyset: %s \n' % studyset.title)
+        click.echo('[NUMBER OF CARDS]: %s \n' % len(studyset))
+        click.echo('[DESCRIPTION]:')
+        click.echo(studyset.description + '\n')
 
     except IOError:
         click.echo('No studyset currently selected.')
