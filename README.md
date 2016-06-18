@@ -73,6 +73,13 @@ $ flashcards cards add
 Card added to the studyset !
 ```
 
+You can also write the question and the answer inside an editor by passing the `-e` parameter to the `flashcards cards add` command. This will 
+open vim by default or the editor set to your `EDITOR` environment variable.
+
+```
+$ flashcards cards add -e
+```
+
 Congratulations ! You just added your first flashcards to your studyset ! 
 
 To see the status of this studyset, simply run this command:
@@ -80,8 +87,12 @@ To see the status of this studyset, simply run this command:
 ```
 $ flashcards status
 
-Currently using studyset: Mathematics (1 cards)
-Description: Some math questions
+Currently using studyset: Mathematics
+
+[NUMBER OF CARDS]: 3
+
+[DESCRIPTION]:
+Some math questions
 ```
 
 If you're wondering how the application knows you're asking about the status of 
