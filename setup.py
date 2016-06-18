@@ -10,7 +10,7 @@ setup(
     name='pyflashcards',
     author='Jonathan Lalande',
     author_email='jonathan.lalande.1@ens.etsmtl.ca',
-    version='1.0.0',
+    version='1.0.2',
     license='MIT',
     description=DESCRIPTION,
     packages=find_packages(),
