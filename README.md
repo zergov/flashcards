@@ -20,7 +20,7 @@ Flashcards definition from wikipedia:
 >Flashcards can bear vocabulary, historical dates, formulas or any subject matter that can be learned via a question-and-answer format.
 >Flashcards are widely used as a learning drill to aid memorization by way of spaced repetition.
 
-## Installing
+## Installing Flashcards
 
 ```
 $ sudo pip install pyflashcards
