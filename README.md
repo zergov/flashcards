@@ -89,7 +89,7 @@ $ flashcards status
 
 Currently using studyset: Mathematics
 
-[NUMBER OF CARDS]: 3
+[NUMBER OF CARDS]: 1
 
 [DESCRIPTION]:
 Some math questions
